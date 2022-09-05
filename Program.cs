@@ -35,6 +35,20 @@ namespace ConsoleAppHomework2
 			int currentValue = sign * nominal * price;
 			Console.WriteLine($"Current value of this transaction is {currentValue}");
 
+			//calculate the profit or loss if it is a sell transaction.
+
+			//first to decide if it is sell transaction
+
+			var sellFactor = sign < 0 ? 1 : 0;
+			//Console.WriteLine($"{sellFactor}");
+
+			//Then add original price and calculate p/l
+
+			Console.WriteLine("Input the original price of the security : ");
+			int originalPrice = Int32.Parse(Console.ReadLine());
+			int profitLoss = (price - originalPrice) * nominal*sellFactor;
+			Console.WriteLine($"Profit/loss of this trade is : {profitLoss}");
+
 			Console.ReadKey();
 		}
 	}
